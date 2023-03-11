@@ -18,9 +18,35 @@ const onSubmit = (evt) => {
   let formErrors = false;
 
   //TODO:: Make sure name fields are not empty
+ /* $(document).ready(function() {
+    $('#update_profile').click(function() {
+        var value = document.getElementById('first_name').value;
+        if (value === '') {
+            alert('Enter your name');
+        }
+    })
+});
 
+$(document).ready(function() {
+  $('#update_profile').click(function() {
+      var value = document.getElementById('last_name').value;
+      if (value === '') {
+          alert('Enter your name');
+      }
+  })
+});
+
+*/
   //TODO:: Validate email with the Regular Expression
-
+  function update_profile() {
+    const input = document.querySelector("#email");
+    const display = document.querySelector("#email_error");
+    if (input.value.match(/[^\s@]+@[^\s@]+\.[^\s@]+/gi)) {
+      display.innerHTML = input.value + ' is valid';
+    } else {
+      display.innerHTML = input.value + ' is not a valid email';
+    }
+  }
   //TODO:: Validate password with the Regular Expression
   //TODO:: Validate passwords to be matching
 
@@ -35,4 +61,5 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#update_profile").addEventListener("click", onSubmit);
 
   $("#reset_form").addEventListener("click", onReset);
+
 });
