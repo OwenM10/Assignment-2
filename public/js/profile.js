@@ -87,6 +87,8 @@ const onSubmit = (evt) => {
   }
 
   if (today.setHours(0, 0, 0, 0) < dob) {
+    $("#dob_error").textContent = "Date of birth is not valid.";
+    formErrors = true;
   }
 
   if (!formErrors) {
