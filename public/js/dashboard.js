@@ -6,6 +6,7 @@ const postalRegEx =
   /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i;
 
 const onReset = (evt) => {
+  resetErrors();
   //TODO:: Reset the reset-able fields
   $("#notifications").checked = true;
   $("#eco").checked = true;
@@ -15,9 +16,17 @@ const onReset = (evt) => {
   evt.preventDefault();
 };
 
-const onSubmit = (evt) => {
-  //TODO::Reset any errors before submitting
+const resetErrors = () => {
+  $("#temperature_error").textContent = "";
+  $("#location_error").textContent = "";
+  console.error("Fields Reset");
+};
 
+const onSubmit = (evt) => {
+  evt.preventDefault();
+
+  //TODO::Reset any errors before submitting
+  resetErrors();
   //TODO:: Set notifications since it doesn't need to be validated
   let notifications = $("#notifications").checked;
 
@@ -36,18 +45,36 @@ const onSubmit = (evt) => {
   //TODO:: Display an error if not valid
   let location = $("#location").value;
 
-  if(postalRegEx.test(location)){
-
-  }else{
-
+  if (postalRegEx.test(location)) {
+    $("#setting_location").textContent = location;
+  } else {
+    $("#location_error").textContent =
+      "Please set a properly 'X0X 0X0' formatted address.";
   }
 
   //TODO:: Validate the temperature by checking the range and if it's a number
   //TODO:: Display an error if not valid
 
-  evt.preventDefault();
-};
+  let temperature = $("#temperature").value;
+  let temperatureError = $("#temperature_error");
 
+  if (isNaN(temperature) || temperature == "") {
+    temperatureError.textContent = "This is not a valid temperature selection.";
+  } else if (temperature > 25 || temperature < 10) {
+    temperatureError.textContent =
+      "Please select a temperature between 10 and 25 C";
+  } else {
+    $("#setting_temperature").textContent = temperature;
+  }
+};
+/*
+  if (15 < $("#temperature").value && $("#temperature").value < 25) {
+    $("#setting_temperature").textContent = $("#temperature").value;
+  } else {
+    $("#temperature_error").textContent = "ERROR";
+  }
+};
+*/
 document.addEventListener("DOMContentLoaded", () => {
   //TODO:: Add current date
   $("#date_display").textContent = new Date().toDateString();
