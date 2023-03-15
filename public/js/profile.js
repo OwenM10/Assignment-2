@@ -32,43 +32,12 @@ const onSubmit = (evt) => {
   let formErrors = false;
 
   //TODO:: Make sure name fields are not empty
-  /*
-  $(document).ready(function () {
-    $("#update_profile").click(function () {
-      var value = document.getElementById("first_name").value;
-      if (value === "") {
-        alert("Enter your name");
-      }
-    });
-  });
-  
-  $(document).ready(function () {
-    $("#update_profile").click(function () {
-      var value = document.getElementById("last_name").value;
-      if (value === "") {
-        alert("Enter your name");
-      }
-    });
-  });
-
   //TODO:: Validate email with the Regular Expression
- 
-  function update_profile() {
-    const input = document.querySelector("#email");
-    const display = document.querySelector("#email_error");
-    if (input.value.match(emailRegEx) {
-      display.innerHTML = input.value + " is valid";
-    } else {
-      display.innerHTML = input.value + " is not a valid email";
-    }
-  }
-  */
   //TODO:: Validate password with the Regular Expression
   //TODO:: Validate passwords to be matching
-
   //TODO:: Make sure date of birth is in the past.
-
   //TODO:: check you formErrors boolean and update the fields if still false
+  
   let firstName = $("#first_name").value;
   let lastName = $("#last_name").value;
   let email = $("#email").value;
@@ -83,6 +52,16 @@ const onSubmit = (evt) => {
   }
   if (!emailRegEx.test(email)) {
     $("#name_error").textContent = "Email is not valid.";
+    formErrors = true;
+  }
+
+  if (!passwordRegEx.test(password)){
+    $("#password_error").textContent = "Password is not secure.";
+    formErrors = true;
+  }
+
+  if (password != confirmPassword){
+    $("#password_error").textContent = "Passwords do not match.";
     formErrors = true;
   }
 
