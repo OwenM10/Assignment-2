@@ -24,6 +24,13 @@ const resetErrors = () => {
   $("#email_error").textContent = "";
 };
 
+
+hdg2.classlist.toggle("#name_error");
+hdg2.classlist.toggle("#password_error");
+hdg2.classlist.toggle("#email_error");
+
+
+
 const onSubmit = (evt) => {
   resetErrors();
   evt.preventDefault();
