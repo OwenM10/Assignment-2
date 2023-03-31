@@ -28,6 +28,10 @@ span {
 
 }
 
+#main_image{
+    max: width 400px; ;
+}
+
 .error-span {
     color: red;
 }
@@ -51,15 +55,45 @@ button {
     width: 11em;
 }
 
-.selected_button{
-    border: 3px solid black;
+
+h2 {
+    color: cornflowerblue;
+    text-align: center;
 }
 
-#error_box{
-    border: 3px solid red;
-    color: red;
+p {
+    text-align: center;
 }
 
-.work{
+#image_list{
+    display: none;
+}
+
+.menu-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+  
+.menu-li {
+    float: left;
+}
+  
+.menu-li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+  /* Change the link color to #111 (black) on hover */
+.menu-li a:hover {
+    background-color: cornflowerblue;
+}
+
+  .hidden{
     display: none;
 }

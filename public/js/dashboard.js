@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //TODO:: Add current date
   $("#date_display").textContent = new Date().toDateString();
   //TODO:: Add Reset Form listener
-  $("#reset_form").addEventListener("click", onReset);
+  $("#reset_form").addEventListener("reset", onReset);
   //TODO:: Add Submit Form listener
   $("#update_settings").addEventListener("click", onSubmit);
 });
