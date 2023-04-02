@@ -7,7 +7,7 @@ const postalRegEx =
 
 const onReset = (evt) => {
   resetErrors();
-  //TODO:: Reset the reset-able fields
+  
   $("#notifications").checked = true;
   $("#eco").checked = true;
   $("#tempature").value = 21;
@@ -25,14 +25,14 @@ const resetErrors = () => {
 const onSubmit = (evt) => {
   evt.preventDefault();
 
-  //TODO::Reset any errors before submitting
+  
   resetErrors();
-  //TODO:: Set notifications since it doesn't need to be validated
+  
   let notifications = $("#notifications").checked;
 
   $("#setting_notifications").textContent = notifications ? "On" : "Off";
 
-  //TODO:: Set lighting mode with a for loop since it doesn't need to be validated
+  
   let lightingModeOptions = document.querySelectorAll("[name='lighting_mode']");
 
   for (let i = 0; i < lightingModeOptions.length; i++) {
@@ -41,8 +41,7 @@ const onSubmit = (evt) => {
     }
   }
 
-  //TODO:: Validate the postal code with the Regular Expression,
-  //TODO:: Display an error if not valid
+  
   let location = $("#location").value;
 
   if (postalRegEx.test(location)) {
@@ -52,8 +51,7 @@ const onSubmit = (evt) => {
       "Please set a properly 'X0X 0X0' formatted address.";
   }
 
-  //TODO:: Validate the temperature by checking the range and if it's a number
-  //TODO:: Display an error if not valid
+ 
 
   let temperature = $("#temperature").value;
   let temperatureError = $("#temperature_error");
@@ -66,20 +64,67 @@ const onSubmit = (evt) => {
   } else {
     $("#setting_temperature").textContent = temperature;
   }
-};
-/*
-  if (15 < $("#temperature").value && $("#temperature").value < 25) {
-    $("#setting_temperature").textContent = $("#temperature").value;
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+const timeInput = document.getElementById("time");
+
+timeInput.addEventListener("input", function() {
+  const timeRegex = /^([0-9]{1,2}):([0-9]{2})$/;
+  const inputTime = timeInput.value;
+
+  if (timeRegex.test(inputTime)) {
+    const [hours, minutes] = inputTime.split(":");
+    const totalMinutes = parseInt(hours) * 60 + parseInt(minutes);
+    console.log("Total minutes:", totalMinutes);
   } else {
-    $("#temperature_error").textContent = "ERROR";
+    console.log("Invalid time format.");
   }
-};
-*/
+});
+
+
+
+
+
+
+
+// Set the date we're counting down to
+var countDownDate = now - timeSet;
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for hours, minutes and seconds
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("tempTimer").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("tempTimer").innerHTML = "EXPIRED";
+  }
+}, 1000);
+}
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded", () => {
-  //TODO:: Add current date
+  
   $("#date_display").textContent = new Date().toDateString();
-  //TODO:: Add Reset Form listener
+  
   $("#reset_form").addEventListener("reset", onReset);
-  //TODO:: Add Submit Form listener
+  
   $("#update_settings").addEventListener("click", onSubmit);
 });
