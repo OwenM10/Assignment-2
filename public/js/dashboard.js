@@ -115,15 +115,11 @@ var x = setInterval(function() {
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
-  // Output the result in an element with id="demo"
-  document.getElementById("tempTimer").innerHTML = days + "d " + hours + "h "
+  // Output the result in an element with id=tempTimer
+  document.getElementById("tempTimer").innerHTML =hours + "h "
   + minutes + "m " + seconds + "s ";
     
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("tempTimer").innerHTML = "EXPIRED";
-  }
+  
 }, 1000);
 }
 //////////////////////////////////////////////////////////////////////////////////////////

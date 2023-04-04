@@ -32,6 +32,7 @@ app.get("/profile2 ", (req, res) => {
   res.render("profile2");
 });
 
-app.get("/slides", (req, res) => {
-  res.sendFile(path.resolve(__dirname + "/views/", "slide-show.html"));
+app.get("/slide-show", (req, res) => {
+  //res.sendFile(path.resolve(__dirname + "/views/", "slide-show.html"));
+  res.render("slide-show");
 });
