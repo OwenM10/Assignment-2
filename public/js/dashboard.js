@@ -10,7 +10,7 @@ const onReset = (evt) => {
   
   $("#notifications").checked = true;
   $("#eco").checked = true;
-  $("#tempature").value = 21;
+  $("#temperature").value = 21;
   $("#location").value = "L7W 4T8";
 
   evt.preventDefault();
@@ -68,6 +68,21 @@ const onSubmit = (evt) => {
 //////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const timeInput = document.getElementById("time");
 
 timeInput.addEventListener("input", function() {
@@ -82,12 +97,6 @@ timeInput.addEventListener("input", function() {
     console.log("Invalid time format.");
   }
 });
-
-
-
-
-
-
 
 // Set the date we're counting down to
 var countDownDate = now - timeSet;
@@ -126,5 +135,5 @@ document.addEventListener("DOMContentLoaded", () => {
   
   $("#reset_form").addEventListener("reset", onReset);
   
-  $("#update_settings").addEventListener("click", onSubmit);
+  $("#update_settings").addEventListener("click", onSubmit);zz
 });

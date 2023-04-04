@@ -66,16 +66,28 @@
             value="21"
           /><span id="temperature_error" class="error-span"></span>
         </div>
+        <div>
+          <label></label>
+          <input type="submit" value="Update" id="update_settings" />
+          <input type="reset" value="Reset" id="reset_form" /></div>
+        <h2>Temporary Temp</h2>
         <div id="tempTimer">
           <label for="time">Enter time (hh:mm):</label>
           <input type="text" id="time" name="time" placeholder="00:00">
           
         </div>
+        <div id="tempTemperature">
+          <label for="temp">Enter Temperature:</label>
+          <input 
+            type="number"
+            id="temp" 
+            name="temp" 
+            placeholder="21°C">
+        </div>
         
         <div>
           <label></label>
-          <input type="submit" value="Update" id="update_settings" />
-          <input type="reset" value="Reset" id="reset_form" />
+          <input type="submit" value="Start" id="start_timer" />
         </div>
       </form>
       <h2>Current Settings</h2>
@@ -97,6 +109,7 @@
         ><span>°C</span>
       </div>
     </main>
+    <%- include ('layouts/menu') -%>
     <script src="js/dashboard.js"></script>
   </body>
 </html>

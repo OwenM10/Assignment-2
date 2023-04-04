@@ -36,5 +36,5 @@ document.addEventListener("DOMContentLoaded", () => {
         imageCache.push(image);
     }
 
-    setInterval(swapImage,2000);
+    setInterval(swapImage,4000);
 });
