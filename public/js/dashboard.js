@@ -5,6 +5,8 @@ const $ = (selector) => document.querySelector(selector);
 const postalRegEx =
   /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i;
 
+
+
 const onReset = (evt) => {
   resetErrors();
   
@@ -80,9 +82,6 @@ const onSubmit = (evt) => {
 
 
 
-
-
-
 const timeInput = document.getElementById("time");
 
 timeInput.addEventListener("input", function() {
@@ -98,28 +97,30 @@ timeInput.addEventListener("input", function() {
   }
 });
 
+// Get today's date and time
+const now = new Date().getTime();
+
 // Set the date we're counting down to
-var countDownDate = now - timeSet;
+const timeSet = 0; // Replace with the target time in milliseconds
+const countDownDate = now - timeSet;
 
 // Update the count down every 1 second
-var x = setInterval(function() {
+const timer = setInterval(function() {
 
-  // Get today's date and time
-  var now = new Date().getTime();
+  // Get the current date and time
+  const currentDate = new Date().getTime();
     
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+  // Find the distance between the current time and the count down date
+  const distance = countDownDate - currentDate;
     
   // Time calculations for hours, minutes and seconds
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
   // Output the result in an element with id=tempTimer
-  document.getElementById("tempTimer").innerHTML =hours + "h "
-  + minutes + "m " + seconds + "s ";
+  document.getElementById("tempTimer").innerHTML = `${hours}h ${minutes}m ${seconds}s`;
     
-  
 }, 1000);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -131,5 +132,5 @@ document.addEventListener("DOMContentLoaded", () => {
   
   $("#reset_form").addEventListener("reset", onReset);
   
-  $("#update_settings").addEventListener("click", onSubmit);zz
+  $("#update_settings").addEventListener("click", onSubmit);
 });

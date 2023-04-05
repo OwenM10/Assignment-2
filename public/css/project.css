@@ -2,9 +2,11 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(255, 255, 255);
     margin: 0 auto;
-    width: 700px;
-    border: 3px solid cornflowerblue;
+    width: auto;
+    border: 3px solid rgb(57, 62, 70);
     padding: 0 2em 1em;
+    text-align: center;
+    
 }
 h1 {
     color: cornflowerblue;
@@ -30,7 +32,12 @@ span {
 
 #main_image{
     width: 1000px;
+    display: block;
+    margin: 0 auto;
+}
 
+#image_list {
+    width: 800px
 }
 
 .error-span {
@@ -99,3 +106,110 @@ p {
     display: none;
 }
 
+.footer-basic {
+    padding:40px 0;
+    background-color:#ffffff;
+    color:#4b4c4d;
+}
+  
+.footer-ul {
+    padding:0;
+    list-style:none;
+    text-align:center;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:0;
+    display: flex;
+    justify-content: space-between;
+}
+  
+.footer-li {
+    padding:0 10px;
+    text-align: center;
+    align-items: center;
+}
+  
+.footer-ul a {
+    color:black;
+    text-decoration:none;
+    opacity:0.8;
+    text-align: center;
+    
+}
+  
+
+
+.slider{
+    margin:50px auto;
+    width: 50%;
+}
+  
+.img-box img{
+    width:100%
+    
+}
+
+
+.rightbtn{
+    border: none;
+    outline: none;
+    background:#888;
+    padding:10px 30px;
+    font-size:20px;
+    color:#ddd;
+    cursor: pointer;
+    margin: 10px auto;
+    float: right;
+}
+
+.leftbtn{
+    border: none;
+    outline: none;
+    background:#888;
+    padding:10px 30px;
+    font-size:20px;
+    color:#ddd;
+    cursor: pointer;
+    margin: 10px auto;
+    float: left;
+}
+
+.btn:hover {
+    background: #111;
+}
+
+
+
+
+
+
+
+
+.policy,
+.terms {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(255, 255, 255);
+    margin-left: 10%;
+    margin-right: 10%;
+    width: auto;
+    border: 3px solid rgb(57, 62, 70);
+    padding: 0 2em 1em;
+    text-align: center;
+}
+
+
+
+
+.square {
+    height: auto;
+    max-width: 100%;
+    border-color: #6F432A #98633B;
+    border-image: none;
+    border-radius: 0 0 0 0;
+    border-style: solid;
+    border-width: 30px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  

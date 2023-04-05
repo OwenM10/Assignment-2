@@ -11,18 +11,48 @@
     <main>
         <h1>Fishing Slide Show</h1>
 
-        <ul id="image_list">
-            <li><a href="images/bmw.jpg" title="BMW E30 M3"></a></li>
-            <li><a href="images/ferrari.jpg" title="Ferrari SF90"></a></li>
-            <li><a href="images/koenigsegg.jpg" title="Koenigsegg Agura RS"></a></li>
-            <li><a href="images/pagani.jpg" title="Pagani Huayra"></a></li>
-            <li><a href="images/porche.jpeg" title="Porche 911"></a></li>
+        
+        <!-- <ul id="slideshow-container">
+            <div class="slideshow-image fade">
+                <li><a href="images/bmw.jpg" title="BMW E30 M3"></a></li>
+            </div>
+            
+            <div class="slideshow-image fade">
+                <li><a href="images/ferrari.jpg" title="Ferrari SF90"></a></li>
+            </div>
+            
+            <div class="slideshow-image fade">
+                <li><a href="images/koenigsegg.jpg" title="Koenigsegg Agura RS"></a></li>
+            </div>
+            
+            <div class="slideshow-image fade">
+                <li><a href="images/pagani.jpg" title="Pagani Huayra"></a></li>
+            </div>
+            
+            <div class="slideshow-image fade">
+                <li><a href="images/porche.jpeg" title="Porche 911"></a></li>
+            </div>
             
             
-        </ul>
+            
+        </ul> -->
+
+        <div class="slider">
+            <div class="img-box">
+                <div class="square">
+                    <img src="images/bmw.jpg" alt="" class="slider-img" />
+                </div>
+                
+            </div>
+
+            <!--Next and prev bttn-->
+            
+            <button class="leftbtn" onClick="prev()">Prev</button>
+            <button class="rightbtn" onClick="next()">next</button>
+        </div>
     
-        <p><img id="main_image" src="images/pagani.jpg" alt="Catch and Release"></p>
-        <h2 id="caption">Catch and Release</h2>    
+        <!-- <p><img id="main_image" src="images/pagani.jpg" alt="Catch and Release"></p>
+        <h2 id="caption">Catch and Release</h2>     -->
 
         <script src="js/slide-show.js"></script>
     </main> 
