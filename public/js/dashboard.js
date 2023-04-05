@@ -66,6 +66,7 @@ const onSubmit = (evt) => {
   } else {
     $("#setting_temperature").textContent = temperature;
   }
+}
 //////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -74,17 +75,16 @@ const onSubmit = (evt) => {
 
 
 
+function TempTimerFunction() {
 
-
-
-
+console.log ("BOZO");
 
 
 
 
 const timeInput = document.getElementById("time");
 
-timeInput.addEventListener("input", function() {
+
   const timeRegex = /^([0-9]{1,2}):([0-9]{2})$/;
   const inputTime = timeInput.value;
 
@@ -95,7 +95,7 @@ timeInput.addEventListener("input", function() {
   } else {
     console.log("Invalid time format.");
   }
-});
+;
 
 // Get today's date and time
 const now = new Date().getTime();
@@ -123,6 +123,7 @@ const timer = setInterval(function() {
     
 }, 1000);
 }
+
 //////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -133,4 +134,5 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#reset_form").addEventListener("reset", onReset);
   
   $("#update_settings").addEventListener("click", onSubmit);
+  //$("#start_timer").addEventListener("click", onSubmit);
 });

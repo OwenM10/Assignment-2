@@ -174,11 +174,13 @@ p {
     float: left;
 }
 
-.btn:hover {
+.leftbtn:hover {
     background: #111;
 }
 
-
+.rightbtn:hover {
+    background: #111;
+}
 
 
 
