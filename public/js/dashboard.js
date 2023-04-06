@@ -76,52 +76,47 @@ const onSubmit = (evt) => {
 
 
 function TempTimerFunction() {
-
-console.log ("BOZO");
-
-
-
-
-const timeInput = document.getElementById("time");
-
-
+  // Get the input time value
+  const timeInput = document.getElementById("time");
   const timeRegex = /^([0-9]{1,2}):([0-9]{2})$/;
   const inputTime = timeInput.value;
 
+  let ogtemp = temperature;
+  let temp = $("#temp").value;
+  $("#setting_temperature").textContent = temp;
+  // Convert the input time to total minutes
   if (timeRegex.test(inputTime)) {
     const [hours, minutes] = inputTime.split(":");
     const totalMinutes = parseInt(hours) * 60 + parseInt(minutes);
-    console.log("Total minutes:", totalMinutes);
+
+    // Set the countdown target time in milliseconds
+    const timeSet = totalMinutes * 60 * 1000;
+    const now = new Date().getTime();
+    const countDownDate = now + timeSet;
+
+    // Update the countdown every second
+    const timer = setInterval(function() {
+      const currentDate = new Date().getTime();
+      const distance = countDownDate - currentDate;
+
+      // Calculate the remaining time in hours, minutes, and seconds
+      const hours = Math.floor(distance / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the remaining time in the tempTimer element
+      document.getElementById("tempTimer").innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+
+      // Clear the interval and display a message when the countdown is finished
+      if (distance <= 0) {
+        clearInterval(timer);
+        $("#setting_temperature").textContent = ogtemp;
+        document.getElementById("tempTimer").innerHTML = "Countdown finished!";
+      }
+    }, 1000);
   } else {
     console.log("Invalid time format.");
   }
-;
-
-// Get today's date and time
-const now = new Date().getTime();
-
-// Set the date we're counting down to
-const timeSet = 0; // Replace with the target time in milliseconds
-const countDownDate = now - timeSet;
-
-// Update the count down every 1 second
-const timer = setInterval(function() {
-
-  // Get the current date and time
-  const currentDate = new Date().getTime();
-    
-  // Find the distance between the current time and the count down date
-  const distance = countDownDate - currentDate;
-    
-  // Time calculations for hours, minutes and seconds
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id=tempTimer
-  document.getElementById("tempTimer").innerHTML = `${hours}h ${minutes}m ${seconds}s`;
-    
-}, 1000);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////

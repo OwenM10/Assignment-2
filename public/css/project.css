@@ -1,11 +1,12 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(47,9,117,1) 13%, rgba(53,7,140,0) 50%, rgba(58,6,162,1) 87%, rgba(2,0,36,1) 100%);
     margin: 0 auto;
     width: auto;
-    border: 3px solid rgb(57, 62, 70);
+    
     padding: 0 2em 1em;
     text-align: center;
+    
     
 }
 h1 {
@@ -107,12 +108,15 @@ p {
 }
 
 .footer-basic {
+    
     padding:40px 0;
     background-color:#ffffff;
     color:#4b4c4d;
+    
 }
   
 .footer-ul {
+    
     padding:0;
     list-style:none;
     text-align:center;
@@ -121,12 +125,15 @@ p {
     margin-bottom:0;
     display: flex;
     justify-content: space-between;
+    
 }
   
 .footer-li {
     padding:0 10px;
     text-align: center;
     align-items: center;
+    
+    
 }
   
 .footer-ul a {
@@ -134,7 +141,10 @@ p {
     text-decoration:none;
     opacity:0.8;
     text-align: center;
-    
+    position: fixed;
+    bottom: 0;
+    margin-left: 100px;
+    margin-right: 100px;
 }
   
 

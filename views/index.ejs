@@ -71,7 +71,7 @@
           <input type="submit" value="Update" id="update_settings" />
           <input type="reset" value="Reset" id="reset_form" /></div>
         <h2>Temporary Temp</h2>
-        <div id="tempTimer">
+        <div>
           <label for="time">Enter time (hh:mm):</label>
           <input type="text" id="time" name="time" placeholder="00:00">
           
@@ -81,15 +81,19 @@
           <input 
             type="number"
             id="temp" 
-            name="temp" 
+            name="temp"
+            min="5"
+            max="30"
+            step="0.5" 
             placeholder="21°C">
         </div>
         
         <div>
           <label></label>
           <!--<input type="button" value="Start" id="start_timer" onclick="Timer" />-->
-          <button onclick="TempTimerFunction()">Start</button>
+          <button  type="button" onclick="TempTimerFunction()">Start</button>
         </div>
+        <p id="tempTimer"></p>
       </form>
       <h2>Current Settings</h2>
       <div>

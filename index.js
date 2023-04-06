@@ -6,7 +6,7 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
-const PORT = 5000;
+const PORT = 6000;
 
 app.listen(PORT, () => {
   console.log("App listening on port ", PORT);
