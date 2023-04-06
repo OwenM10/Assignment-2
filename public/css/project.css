@@ -124,7 +124,7 @@ p {
     line-height:1.6;
     margin-bottom:0;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-around
     
 }
   
@@ -143,8 +143,7 @@ p {
     text-align: center;
     position: fixed;
     bottom: 0;
-    margin-left: 100px;
-    margin-right: 100px;
+    
 }
   
 
@@ -169,7 +168,7 @@ p {
     color:#ddd;
     cursor: pointer;
     margin: 10px auto;
-    float: right;
+    
 }
 
 .leftbtn{
@@ -181,7 +180,7 @@ p {
     color:#ddd;
     cursor: pointer;
     margin: 10px auto;
-    float: left;
+    
 }
 
 .leftbtn:hover {
