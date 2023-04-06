@@ -85,6 +85,7 @@ p {
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    
 }
   
 .menu-li {
@@ -112,7 +113,7 @@ p {
     
     padding:40px 0;
     background-color:#ffffff;
-    color:#4b4c4d;
+    color:#4e4f50;
     
 }
   
@@ -144,7 +145,7 @@ p {
     text-align: center;
     position: fixed;
     bottom: 0;
-    
+    font-size: x-large;
 }
   
 
