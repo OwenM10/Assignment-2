@@ -110,7 +110,7 @@ function TempTimerFunction() {
       // Clear the interval and display a message when the countdown is finished
       if (distance <= 0) {
         clearInterval(timer);
-        $("#setting_temperature").textContent = ogtemp;
+        $("#setting_temperature").textContent = $("#temperature").value;
         document.getElementById("tempTimer").innerHTML = "Countdown finished!";
       }
     }, 1000);
