@@ -1,12 +1,12 @@
 "use strict";
-
+// document.querySelector assigned selector $
 const $ = (selector) => document.querySelector(selector);
-
+// make sure postal code is in proper format
 const postalRegEx =
   /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i;
 
 
-
+//Resets dashboard settings to default values when reset button is pressed
 const onReset = (evt) => {
   resetErrors();
   
@@ -17,35 +17,38 @@ const onReset = (evt) => {
 
   evt.preventDefault();
 };
-
+//Defines resetErrors function where when called will reset/clear the temp and location errors
 const resetErrors = () => {
   $("#temperature_error").textContent = "";
   $("#location_error").textContent = "";
   console.error("Fields Reset");
 };
-
+//Defines onSubmit function
 const onSubmit = (evt) => {
+  //prevents default values
   evt.preventDefault();
 
-  
+  //calls reset errors function
   resetErrors();
   
+  //declares variable notifications and assigns it the boolean value of whether the checkbox with the ID notifications is checked or not.
   let notifications = $("#notifications").checked;
-
+//sets setting_notifications to "on" or "off" based on notifications value
   $("#setting_notifications").textContent = notifications ? "On" : "Off";
 
-  
+  //selects all the elements that have a name attribute of lighting_mode and assigns them to a variable lightingModeOptions
   let lightingModeOptions = document.querySelectorAll("[name='lighting_mode']");
-
+//selects all lighting_mode attribute and assigns to variable lighting mode options
   for (let i = 0; i < lightingModeOptions.length; i++) {
     if (lightingModeOptions[i].checked) {
       $("#setting_lighting_mode").textContent = lightingModeOptions[i].value;
     }
   }
 
-  
+  //assigns value of input with id of loaction to variable "location"
   let location = $("#location").value;
-
+//if the entered postal format is valid it will set setting_location to value of location
+//if not valid format will display message
   if (postalRegEx.test(location)) {
     $("#setting_location").textContent = location;
   } else {
@@ -54,10 +57,13 @@ const onSubmit = (evt) => {
   }
 
  
-
+//assigns value of input with id of temperature to variable "temperature"
   let temperature = $("#temperature").value;
+ // assigns element with id of temperature_error to variable "temperatureError" 
   let temperatureError = $("#temperature_error");
-
+//checks if temperature is valid
+//if not, will display error message
+//If valid will set setting_temperature to variable value of "temperature"
   if (isNaN(temperature) || temperature == "") {
     temperatureError.textContent = "This is not a valid temperature selection.";
   } else if (temperature > 25 || temperature < 10) {
@@ -74,14 +80,17 @@ const onSubmit = (evt) => {
 
 
 
-
+//decalre function called TempTimerFunction
 function TempTimerFunction() {
   // Get the input time value
   const timeInput = document.getElementById("time");
+//defines format for time
   const timeRegex = /^([0-9]{1,2}):([0-9]{2})$/;
+  //gets value of input and puts in variable inputTime
   const inputTime = timeInput.value;
-
+//declares variable ogtemp and stores temperature value
   let ogtemp = temperature;
+  //get value of element with id of temp and stores in variable "temp"
   let temp = $("#temp").value;
   $("#setting_temperature").textContent = temp;
   // Convert the input time to total minutes
